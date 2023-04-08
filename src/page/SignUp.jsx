@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { regex } from '../util/regex';
 
 const SignUp = () => {
@@ -14,8 +14,6 @@ const SignUp = () => {
   });
   const [isDisabled, setIsDisabled] = useState(true);
 
-  console.log('formState', formState);
-
   const onEmailChange = (e) => {
     const { value } = e.target;
     const isVailed = regex.email.test(value);
@@ -29,6 +27,14 @@ const SignUp = () => {
       password: { value, isVailed },
     });
   };
+
+  useEffect(() => {
+    if (formState.email.isVailed && formState.password.isVailed) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [formState]);
 
   return (
     <div>
