@@ -3,6 +3,7 @@ import { regex } from '../util/regex';
 import styled from 'styled-components';
 import { useRouter } from '../hooks/useRouter';
 import { routePath } from '../routes';
+import { postSignUp } from '../service/auth';
 
 const SignUp = () => {
   const [formState, setFormState] = useState({
@@ -40,10 +41,18 @@ const SignUp = () => {
     });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log('회원가입 완료');
-    routeTo(routePath.signin);
+    const body = {
+      email: formState.email.value,
+      password: formState.password.value,
+    };
+    try {
+      await postSignUp(body);
+      routeTo(routePath.signin);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
