@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { useRouter } from '../hooks/useRouter';
 import { routePath } from '../routes';
 import { postSignIn } from '../service/auth';
+import useRedirect from '../hooks/useRedirect';
+import PageLayout from '../components/PageLayout';
 
 const SignUp = () => {
   const [formState, setFormState] = useState({
@@ -18,6 +20,8 @@ const SignUp = () => {
   });
   const [isDisabled, setIsDisabled] = useState(true);
   const { routeTo } = useRouter();
+
+  useRedirect();
 
   useEffect(() => {
     if (formState.email.isVailed && formState.password.isVailed) {
@@ -56,8 +60,7 @@ const SignUp = () => {
   };
 
   return (
-    <SignUpContainer>
-      <StTitle>로그인</StTitle>
+    <PageLayout title={'로그인'}>
       <StInputForm onSubmit={onSubmit}>
         <p>이메일</p>
         <StInput
@@ -81,22 +84,12 @@ const SignUp = () => {
           로그인
         </Button>
       </StInputForm>
-    </SignUpContainer>
+    </PageLayout>
   );
 };
 
 export default SignUp;
 
-const SignUpContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-`;
-const StTitle = styled.h2`
-  margin: 16px 0px 48px;
-`;
 const StInputForm = styled.form`
   display: flex;
   justify-content: center;
