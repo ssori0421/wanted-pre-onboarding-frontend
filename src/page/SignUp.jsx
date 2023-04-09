@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { regex } from '../util/regex';
 import styled from 'styled-components';
+import { useRouter } from '../hooks/useRouter';
+import { routePath } from '../routes';
 
 const SignUp = () => {
   const [formState, setFormState] = useState({
@@ -14,6 +16,7 @@ const SignUp = () => {
     },
   });
   const [isDisabled, setIsDisabled] = useState(true);
+  const { routeTo } = useRouter();
 
   useEffect(() => {
     if (formState.email.isVailed && formState.password.isVailed) {
@@ -40,6 +43,7 @@ const SignUp = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log('회원가입 완료');
+    routeTo(routePath.signin);
   };
 
   return (
