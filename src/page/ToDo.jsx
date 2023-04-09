@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react';
+import useRedirect from '../hooks/useRedirect';
+import PageLayout from '../components/PageLayout';
+import { getTodo } from '../service/todo';
 
 const ToDo = () => {
-  return (
-    <div>
-      ToDo
-    </div>
-  )
-}
+  const [todoList, setTodoList] = useState();
+  useRedirect();
 
-export default ToDo
+  const getTodoList = useCallback(async () => {
+    const data = await getTodo();
+    setTodoList(data);
+  }, []);
+
+  useEffect(() => {
+    getTodoList();
+  }, [getTodoList]);
+
+  return <PageLayout title={'Todo'}></PageLayout>;
+};
+
+export default ToDo;
