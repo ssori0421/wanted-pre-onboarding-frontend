@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { palette } from '../styles/palette';
+import SmallButton from './SmallButton';
 
 const TodoItem = ({ value, onDeleteTodo, onUpdateTodo }) => {
   const { id, todo, isCompleted } = value;
@@ -25,8 +27,10 @@ const TodoItem = ({ value, onDeleteTodo, onUpdateTodo }) => {
       {isModify ? (
         <>
           <StInputLabel>
-            <input type='checkbox' onChange={onCompleteHandler} />
-            <input
+            <StInputCheckBox type='checkbox' onChange={onCompleteHandler} />
+            <StInput
+              data-
+              // modify-input
               value={inputTodo}
               onChange={(e) => {
                 setInputTodo(e.target.value);
@@ -34,37 +38,42 @@ const TodoItem = ({ value, onDeleteTodo, onUpdateTodo }) => {
               data-testid='modify-input'
             />
           </StInputLabel>
-          <StTodoButton data-testid='submit-button' onClick={onUpdate}>
+          <SmallButton data_testid='submit-button' onClick={onUpdate}>
             제출
-          </StTodoButton>
-          <StTodoButton data-testid='cancel-button' onClick={onModifyHandler}>
+          </SmallButton>
+          <SmallButton
+            data_testid='cancel-button'
+            varient={'outlined'}
+            onClick={onModifyHandler}
+          >
             취소
-          </StTodoButton>
+          </SmallButton>
         </>
       ) : (
         <>
           <StInputLabel>
-            <input
+            <StInputCheckBox
               type='checkbox'
               checked={isCompleted}
               onChange={onCompleteHandler}
             />
-            <span>{todo}</span>
+            <StSpan>{todo}</StSpan>
           </StInputLabel>
-          <StTodoButton
-            data-testid='modify-button'
+          <SmallButton
+            data_testid='modify-button'
             value={id}
             onClick={onModifyHandler}
           >
             수정
-          </StTodoButton>
-          <StTodoButton
-            data-testid='delete-button'
+          </SmallButton>
+          <SmallButton
+            data_testid='delete-button'
             value={id}
             onClick={onDeleteTodo}
+            varient={'outlined'}
           >
             삭제
-          </StTodoButton>
+          </SmallButton>
         </>
       )}
     </StLi>
@@ -73,16 +82,46 @@ const TodoItem = ({ value, onDeleteTodo, onUpdateTodo }) => {
 export default TodoItem;
 
 const StLi = styled.li`
+  display: flex;
+  align-items: center;
   margin-bottom: 16px;
 `;
 
-const StInputLabel = styled.label`
-  margin-right: 8px;
+const StSpan = styled.span`
+  display: inline-block;
+  height: 100%;
+  margin-bottom: 2px;
 `;
 
-const StTodoButton = styled.button`
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 4px 8px;
-  margin-right: 4px;
+const StInputLabel = styled.label`
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  flex: 1 1 0%;
+`;
+
+const StInput = styled.input`
+  width: 80%;
+  margin-right: 16px;
+  border-bottom: 2px solid ${palette.mainColor};
+  padding: 2px 0px;
+`;
+
+const StInputCheckBox = styled.input`
+  cursor: pointer;
+  appearance: none;
+  border: 1.5px solid gainsboro;
+  border-radius: 0.35rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 10px 0 0;
+  &:checked {
+    border-color: transparent;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+    background-size: 100% 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-color: ${palette.mainColor};
+  }
 `;
