@@ -6,6 +6,7 @@ import { routePath } from '../routes';
 import { postSignUp } from '../service/auth';
 import useRedirect from '../hooks/useRedirect';
 import PageLayout from '../components/PageLayout';
+import { palette } from '../styles/palette';
 
 const SignUp = () => {
   const [formState, setFormState] = useState({
@@ -100,18 +101,19 @@ const StInputForm = styled.form`
 
 const StInput = styled.input`
   padding: 8px 15px 9px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid ${palette.black};
 `;
 
 const StMessage = styled.p`
-  color: #35c5f0;
+  color: ${palette.mainColor};
 `;
 
 const Button = styled.button`
   height: 50px;
-  color: #fff;
+  color: ${palette.white};
   font-size: 18px;
   font-weight: 600;
   border-radius: 8px;
-  background-color: ${(props) => (props.disabled ? 'grey' : '#35c5f0')};
+  background-color: ${(props) =>
+    props.disabled ? palette.disable : palette.mainColor};
 `;
