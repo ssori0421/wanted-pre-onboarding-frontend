@@ -4,6 +4,7 @@ import PageLayout from '../components/PageLayout';
 import styled from 'styled-components';
 import { createTodo, deleteTodo, getTodo, updateTodo } from '../service/todo';
 import TodoItem from '../components/TodoItem';
+import { palette } from '../styles/palette';
 
 const ToDo = () => {
   const [todoList, setTodoList] = useState();
@@ -67,8 +68,14 @@ const ToDo = () => {
     <PageLayout title={'Todo'}>
       <StTodoContainer>
         <StFormContainer onSubmit={onSubmitTodo}>
-          <StInput value={todoInput} onChange={onChangeInputHandler} />
-          <StTodoButton type='submit'>등록</StTodoButton>
+          <StInput
+            data-testid='new-todo-input'
+            value={todoInput}
+            onChange={onChangeInputHandler}
+          />
+          <StTodoButton data-testid='new-todo-add-button' type='submit'>
+            추가
+          </StTodoButton>
         </StFormContainer>
         <StTodoListContainer>
           <StUl>
@@ -101,7 +108,7 @@ const StFormContainer = styled.form`
 const StInput = styled.input`
   padding: 8px 15px 9px;
   width: 280px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid ${palette.black};
 `;
 const StUl = styled.ul`
   margin-top: 16px;
@@ -115,4 +122,8 @@ const StTodoButton = styled.button`
   border-radius: 4px;
   padding: 4px 8px;
   margin-right: 4px;
+  background-color: ${palette.mainColor};
+  color: ${palette.white};
+  border: none;
+  width: 60px;
 `;
