@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 const PageLayout = ({ children, title }) => {
   return (
     <PageContainer>
@@ -19,5 +20,5 @@ const PageContainer = styled.div`
 
 const StTitle = styled.h2`
   font-size: 1.5rem;
-  margin: 16px 0px 48px;
+  margin: 16px 0px 32px;
 `;
