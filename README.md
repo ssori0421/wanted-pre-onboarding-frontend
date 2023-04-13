@@ -21,7 +21,7 @@ wanted-pre-onboarding-frontend
 │  │  └─ useRouter.js
 │  ├─ page
 │  │  ├─ Home.jsx
-│  │  ├─ Signin.jsx
+│  │  ├─ SignIn.jsx
 │  │  ├─ SignUp.jsx
 │  │  └─ ToDo.jsx
 │  ├─ routes
