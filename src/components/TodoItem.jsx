@@ -27,10 +27,12 @@ const TodoItem = ({ value, onDeleteTodo, onUpdateTodo }) => {
       {isModify ? (
         <>
           <StInputLabel>
-            <StInputCheckBox type='checkbox' onChange={onCompleteHandler} />
+            <StInputCheckBox
+              type='checkbox'
+              checked={isCompleted}
+              onChange={onCompleteHandler}
+            />
             <StInput
-              data-
-              // modify-input
               value={inputTodo}
               onChange={(e) => {
                 setInputTodo(e.target.value);
