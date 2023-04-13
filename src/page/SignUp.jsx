@@ -12,11 +12,11 @@ const SignUp = () => {
   const [formState, setFormState] = useState({
     email: {
       value: '',
-      isVailed: false,
+      isvalid: false,
     },
     password: {
       value: '',
-      isVailed: false,
+      isvalid: false,
     },
   });
   const [isDisabled, setIsDisabled] = useState(true);
@@ -25,7 +25,7 @@ const SignUp = () => {
   useRedirect();
 
   useEffect(() => {
-    if (formState.email.isVailed && formState.password.isVailed) {
+    if (formState.email.isvalid && formState.password.isvalid) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
@@ -34,15 +34,15 @@ const SignUp = () => {
 
   const onEmailChange = (e) => {
     const { value } = e.target;
-    const isVailed = regex.email.test(value);
-    setFormState({ ...formState, email: { value, isVailed } });
+    const isvalid = regex.email.test(value);
+    setFormState({ ...formState, email: { value, isvalid } });
   };
   const onPasswordChange = (e) => {
     const { value } = e.target;
-    const isVailed = regex.password.test(value);
+    const isvalid = regex.password.test(value);
     setFormState({
       ...formState,
-      password: { value, isVailed },
+      password: { value, isvalid },
     });
   };
 
@@ -66,7 +66,7 @@ const SignUp = () => {
         <p>이메일</p>
         <StInput
           placeholder='아이디를 입력해 주세요.'
-          type='email'
+          type='text'
           data-testid='email-input'
           value={formState.email.value}
           onChange={onEmailChange}
