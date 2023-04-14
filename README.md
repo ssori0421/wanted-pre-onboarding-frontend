@@ -45,6 +45,8 @@ wanted-pre-onboarding-frontend
 3) 로그인 여부에 따른 리다이렉트 처리 구현
 4) 투두리스트의 작성/수정/삭제 기능 구현
 
+  > 주의사항 : 로그인 이후 localstorage의 access_token삭제 해주셔야 투두리스트의 redirect 테스트를 할수 있습니다.
+
 ## 베포링크
 - https://wanted-pre-onboarding-frontend-self.vercel.app/
 
