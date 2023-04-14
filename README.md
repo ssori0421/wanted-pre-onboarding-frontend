@@ -51,7 +51,7 @@ wanted-pre-onboarding-frontend
 ## 데모 영상
 | 회원가입 & 로그인 | 리다이렉트 | 투두리스트 |
 |:---:|:---:|:---:|
-|![ezgif com-video-to-gif](https://user-images.githubusercontent.com/115159126/231817947-71b6c099-c5f8-48c2-9f5c-7963161abc62.gif)|![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/115159126/231818397-da9a9d8a-24aa-45a1-bde2-98dbe3aabcab.gif)|![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/115159126/231818800-bf04ba6b-893a-4b97-a7b4-c4294ab7c8be.gif)
+|![회원가입 & 로그인](https://user-images.githubusercontent.com/115159126/232050063-2bc6380e-8b5b-42bc-ba11-70976d862640.gif)|![리다이렉트](https://user-images.githubusercontent.com/115159126/232050209-744d96c9-b043-4161-a8c4-ccede7140fdf.gif)|![투두리스트](https://user-images.githubusercontent.com/115159126/232050190-8efb7859-82b9-442c-8b79-67479a2480a3.gif)
 
 
 ## 프로젝트 실행 방법
