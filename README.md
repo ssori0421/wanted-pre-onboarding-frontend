@@ -45,6 +45,9 @@ wanted-pre-onboarding-frontend
 3) 로그인 여부에 따른 리다이렉트 처리 구현
 4) 투두리스트의 작성/수정/삭제 기능 구현
 
+## 베포링크
+- https://wanted-pre-onboarding-frontend-self.vercel.app/
+
 ## 데모 영상
 | 회원가입 & 로그인 | 리다이렉트 | 투두리스트 |
 |:---:|:---:|:---:|
@@ -52,8 +55,14 @@ wanted-pre-onboarding-frontend
 
 
 ## 프로젝트 실행 방법
-```
+``` bash
+# 레포지토리 클론
+git clone https://github.com/ssori0421/wanted-pre-onboarding-frontend.git
+
+# 패키지 설치
 npm install
+
+# 실행
 npm start
 ```
 
